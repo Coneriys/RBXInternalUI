@@ -87,6 +87,86 @@ local function updateCanvasSize()
     EditorScrollingFrame.CanvasSize = UDim2.new(0, 0, 0, math.max(textBounds.Y + 20, EditorScrollingFrame.AbsoluteSize.Y))
 end
 
+-- Создаем ClearButton
+ClearButton = Instance.new("TextButton")
+ClearButton.Name = "ClearButton"
+ClearButton.Parent = ControlsFrame
+ClearButton.BackgroundColor3 = Theme.ButtonColor
+ClearButton.Position = UDim2.new(0.18, 0, 0.1, 0)
+ClearButton.Size = UDim2.new(0, 80, 0, 38)
+ClearButton.Font = Enum.Font.GothamBold
+ClearButton.Text = "Clear"
+ClearButton.TextColor3 = Theme.Text
+ClearButton.TextSize = 14.000
+
+UICorner_Clear = Instance.new("UICorner")
+UICorner_Clear.CornerRadius = UDim.new(0, 8)
+UICorner_Clear.Parent = ClearButton
+
+-- Создаем SaveButton
+SaveButton = Instance.new("TextButton")
+SaveButton.Name = "SaveButton"
+SaveButton.Parent = ControlsFrame
+SaveButton.BackgroundColor3 = Theme.ButtonColor
+SaveButton.Position = UDim2.new(0.3, 0, 0.1, 0)
+SaveButton.Size = UDim2.new(0, 80, 0, 38)
+SaveButton.Font = Enum.Font.GothamBold
+SaveButton.Text = "Save"
+SaveButton.TextColor3 = Theme.Text
+SaveButton.TextSize = 14.000
+
+UICorner_Save = Instance.new("UICorner")
+UICorner_Save.CornerRadius = UDim.new(0, 8)
+UICorner_Save.Parent = SaveButton
+
+-- Создаем LoadButton
+LoadButton = Instance.new("TextButton")
+LoadButton.Name = "LoadButton"
+LoadButton.Parent = ControlsFrame
+LoadButton.BackgroundColor3 = Theme.ButtonColor
+LoadButton.Position = UDim2.new(0.42, 0, 0.1, 0)
+LoadButton.Size = UDim2.new(0, 80, 0, 38)
+LoadButton.Font = Enum.Font.GothamBold
+LoadButton.Text = "Load"
+LoadButton.TextColor3 = Theme.Text
+LoadButton.TextSize = 14.000
+
+UICorner_Load = Instance.new("UICorner")
+UICorner_Load.CornerRadius = UDim.new(0, 8)
+UICorner_Load.Parent = LoadButton
+
+-- Создаем ScriptHubButton
+ScriptHubButton = Instance.new("TextButton")
+ScriptHubButton.Name = "ScriptHubButton"
+ScriptHubButton.Parent = ControlsFrame
+ScriptHubButton.BackgroundColor3 = Theme.ButtonColor
+ScriptHubButton.Position = UDim2.new(0.54, 0, 0.1, 0)
+ScriptHubButton.Size = UDim2.new(0, 100, 0, 38)
+ScriptHubButton.Font = Enum.Font.GothamBold
+ScriptHubButton.Text = "Script Hub"
+ScriptHubButton.TextColor3 = Theme.Text
+ScriptHubButton.TextSize = 14.000
+
+UICorner_ScriptHub = Instance.new("UICorner")
+UICorner_ScriptHub.CornerRadius = UDim.new(0, 8)
+UICorner_ScriptHub.Parent = ScriptHubButton
+
+-- Создаем SettingsButton
+SettingsButton = Instance.new("TextButton")
+SettingsButton.Name = "SettingsButton"
+SettingsButton.Parent = ControlsFrame
+SettingsButton.BackgroundColor3 = Theme.ButtonColor
+SettingsButton.Position = UDim2.new(0.68, 0, 0.1, 0)
+SettingsButton.Size = UDim2.new(0, 90, 0, 38)
+SettingsButton.Font = Enum.Font.GothamBold
+SettingsButton.Text = "Settings"
+SettingsButton.TextColor3 = Theme.Text
+SettingsButton.TextSize = 14.000
+
+UICorner_Settings = Instance.new("UICorner")
+UICorner_Settings.CornerRadius = UDim.new(0, 8)
+UICorner_Settings.Parent = SettingsButton
+
 -- Заголовок в стиле macOS для ScriptHub
 local ScriptHubTitleBar = Instance.new("Frame")
 ScriptHubTitleBar.Name = "TitleBar"
