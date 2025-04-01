@@ -1,3 +1,20 @@
+local executorName = ""
+
+-- Get executor name function
+local function getExecutorName()
+    local success, result = pcall(function()
+        return getexecutorname()
+    end)
+    
+    if success then
+        return result
+    else
+        return "Internal UI"
+    end
+end
+
+executorName = getExecutorName()
+
 -- Инийиализация Темы
 local Theme = {
     Background = Color3.fromRGB(25, 25, 25),
