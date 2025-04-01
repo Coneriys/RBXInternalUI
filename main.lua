@@ -1,6 +1,4 @@
 local executorName = ""
-local TextBox = Instance.new("TextBox")
-TextBox.Parent = EditorScrollingFrame
 
 -- Get executor name function
 local function getExecutorName()
@@ -27,6 +25,67 @@ local Theme = {
     ButtonHover = Color3.fromRGB(65, 65, 65),
     Shadow = Color3.fromRGB(15, 15, 15)
 }
+
+-- Создаем EditorScrollingFrame
+EditorScrollingFrame = Instance.new("ScrollingFrame")
+EditorScrollingFrame.Name = "EditorScrollingFrame"
+EditorScrollingFrame.Parent = ScriptEditor
+EditorScrollingFrame.BackgroundTransparency = 1
+EditorScrollingFrame.Position = UDim2.new(0, 35, 0, 0)
+EditorScrollingFrame.Size = UDim2.new(1, -40, 1, 0)
+EditorScrollingFrame.CanvasSize = UDim2.new(0, 0, 0, 0)
+EditorScrollingFrame.ScrollBarThickness = 5
+EditorScrollingFrame.ScrollingDirection = Enum.ScrollingDirection.Y
+EditorScrollingFrame.BorderSizePixel = 0
+EditorScrollingFrame.VerticalScrollBarInset = Enum.ScrollBarInset.ScrollBar
+
+-- Создаем TextBox
+TextBox = Instance.new("TextBox")
+TextBox.Parent = EditorScrollingFrame
+TextBox.BackgroundTransparency = 1
+TextBox.Size = UDim2.new(1, -10, 1, 0)
+TextBox.Position = UDim2.new(0, 5, 0, 5)
+TextBox.Font = Enum.Font.Code
+TextBox.TextSize = 14
+TextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextBox.TextXAlignment = Enum.TextXAlignment.Left
+TextBox.TextYAlignment = Enum.TextYAlignment.Top
+TextBox.ClearTextOnFocus = false
+TextBox.MultiLine = true
+TextBox.AutomaticSize = Enum.AutomaticSize.Y
+TextBox.Text = ""
+TextBox.PlaceholderText = "Enter your script here..."
+TextBox.PlaceholderColor3 = Color3.fromRGB(100, 100, 100)
+
+-- Функция для обновления номеров строк
+local function updateLineNumbers()
+    local text = TextBox.Text
+    local lines = text:split("\n")
+    local lineNumbersText = ""
+    
+    for i = 1, #lines do
+        lineNumbersText = lineNumbersText .. i .. "\n"
+    end
+    
+    -- Убедимся, что есть хотя бы одна строка
+    if lineNumbersText == "" then
+        lineNumbersText = "1"
+    end
+    
+    LineNumbers.Text = lineNumbersText
+end
+
+-- Функция для обновления размера канваса
+local function updateCanvasSize()
+    local textBounds = TextService:GetTextSize(
+        TextBox.Text, 
+        TextBox.TextSize, 
+        TextBox.Font, 
+        Vector2.new(EditorScrollingFrame.AbsoluteSize.X, 10000)
+    )
+    
+    EditorScrollingFrame.CanvasSize = UDim2.new(0, 0, 0, math.max(textBounds.Y + 20, EditorScrollingFrame.AbsoluteSize.Y))
+end
 
 -- Заголовок в стиле macOS для ScriptHub
 local ScriptHubTitleBar = Instance.new("Frame")
@@ -151,24 +210,6 @@ UIListLayout = Instance.new("UIListLayout")
 UIListLayout.Parent = ScriptHubList
 UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
 UIListLayout.Padding = UDim.new(0, 8)
-
--- Функция для обновления номеров строк
-local function updateLineNumbers()
-    local text = TextBox.Text
-    local lines = text:split("\n")
-    local lineNumbersText = ""
-    
-    for i = 1, #lines do
-        lineNumbersText = lineNumbersText .. i .. "\n"
-    end
-    
-    -- Убедимся, что есть хотя бы одна строка
-    if lineNumbersText == "" then
-        lineNumbersText = "1"
-    end
-    
-    LineNumbers.Text = lineNumbersText
-end
 
 -- Функция для добавления скрипта в хаб
 local function addScriptToHub(name, script)
@@ -446,18 +487,6 @@ local function saveScript()
             backdrop:Destroy()
         end)
     end)
-end
-
--- Функция для обновления размера канваса
-local function updateCanvasSize()
-    local textBounds = TextService:GetTextSize(
-        TextBox.Text, 
-        TextBox.TextSize, 
-        TextBox.Font, 
-        Vector2.new(EditorScrollingFrame.AbsoluteSize.X, 10000)
-    )
-    
-    EditorScrollingFrame.CanvasSize = UDim2.new(0, 0, 0, math.max(textBounds.Y + 20, EditorScrollingFrame.AbsoluteSize.Y))
 end
 
 -- Функция для переключения видимости UI
