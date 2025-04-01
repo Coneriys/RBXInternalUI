@@ -1,4 +1,5 @@
 local executorName = ""
+local TextBox = Instance.new("TextBox")
 
 -- Get executor name function
 local function getExecutorName()
