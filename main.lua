@@ -87,7 +87,8 @@ end
 
 -- Properties:
 ScreenGui.Name = executorName .. "UI"
-ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+local CoreGui = game:GetService("CoreGui")
+ScreenGui.Parent = CoreGui
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 ScreenGui.ResetOnSpawn = false
 ScreenGui.DisplayOrder = 999
