@@ -1,5 +1,6 @@
 local executorName = ""
 local TextBox = Instance.new("TextBox")
+TextBox.Parent = EditorScrollingFrame
 
 -- Get executor name function
 local function getExecutorName()
