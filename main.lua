@@ -25,7 +25,7 @@ UICorner_ScriptHubTitleBar.Parent = ScriptHubTitleBar
 -- Исправление углов заголовка
 local ScriptHubTitleCornerFix = Instance.new("Frame")
 ScriptHubTitleCornerFix.Name = "CornerFix"
-ScriptHubTitleCornerFix.BackgroundColor3 = getCurrentTheme().SecondaryBackground
+ScriptHubTitleCornerFix.BackgroundColor3 = Theme.SecondaryBackground
 ScriptHubTitleCornerFix.BorderSizePixel = 0
 ScriptHubTitleCornerFix.Size = UDim2.new(1, 0, 0, 10)
 ScriptHubTitleCornerFix.Position = UDim2.new(0, 0, 1, -10)
@@ -40,7 +40,7 @@ ScriptHubTitle.Position = UDim2.new(0, 15, 0, 0)
 ScriptHubTitle.Size = UDim2.new(1, -50, 1, 0)
 ScriptHubTitle.Font = Enum.Font.SourceSansBold
 ScriptHubTitle.Text = executorName .. " Script Hub"
-ScriptHubTitle.TextColor3 = getCurrentTheme().Text
+ScriptHubTitle.TextColor3 = Theme.Text
 ScriptHubTitle.TextSize = 18
 ScriptHubTitle.TextXAlignment = Enum.TextXAlignment.Center
 ScriptHubTitle.ZIndex = 11
@@ -156,11 +156,11 @@ local function addScriptToHub(name, script)
     local scriptButton = Instance.new("TextButton")
     scriptButton.Name = name
     scriptButton.Parent = ScriptHubList
-    scriptButton.BackgroundColor3 = getCurrentTheme().ButtonColor
+    scriptButton.BackgroundColor3 = Theme.ButtonColor
     scriptButton.Size = UDim2.new(1, -10, 0, 40)
     scriptButton.Font = Enum.Font.Gotham
     scriptButton.Text = "  " .. name
-    scriptButton.TextColor3 = getCurrentTheme().Text
+    scriptButton.TextColor3 = Theme.Text
     scriptButton.TextSize = 14
     scriptButton.ZIndex = 11
     scriptButton.TextXAlignment = Enum.TextXAlignment.Left
@@ -175,7 +175,7 @@ local function addScriptToHub(name, script)
     -- Добавим иконку документа
     local docIcon = Instance.new("Frame")
     docIcon.Name = "DocIcon"
-    docIcon.BackgroundColor3 = getCurrentTheme().AccentColor
+    docIcon.BackgroundColor3 = Theme.AccentColor
     docIcon.Position = UDim2.new(1, -35, 0.5, -8)
     docIcon.Size = UDim2.new(0, 16, 0, 20)
     docIcon.ZIndex = 12
@@ -188,7 +188,7 @@ local function addScriptToHub(name, script)
     -- Маленькая деталь для иконки документа
     local docFold = Instance.new("Frame")
     docFold.Name = "DocFold"
-    docFold.BackgroundColor3 = getCurrentTheme().ButtonColor
+    docFold.BackgroundColor3 = Theme.ButtonColor
     docFold.BorderSizePixel = 0
     docFold.Position = UDim2.new(1, -8, 0, -2)
     docFold.Size = UDim2.new(0, 8, 0, 8)
@@ -199,13 +199,13 @@ local function addScriptToHub(name, script)
     -- Эффекты при наведении и нажатии
     scriptButton.MouseEnter:Connect(function()
         TweenService:Create(scriptButton, TweenInfo.new(0.3), {
-            BackgroundColor3 = getCurrentTheme().ButtonHover
+            BackgroundColor3 = Theme.ButtonHover
         }):Play()
     end)
     
     scriptButton.MouseLeave:Connect(function()
         TweenService:Create(scriptButton, TweenInfo.new(0.3), {
-            BackgroundColor3 = getCurrentTheme().ButtonColor
+            BackgroundColor3 = Theme.ButtonColor
         }):Play()
     end)
     
@@ -248,7 +248,7 @@ local function saveScript()
     
     local modalFrame = Instance.new("Frame")
     modalFrame.Name = "ModalFrame"
-    modalFrame.BackgroundColor3 = getCurrentTheme().SecondaryBackground
+    modalFrame.BackgroundColor3 = Theme.SecondaryBackground
     modalFrame.BorderSizePixel = 0
     modalFrame.Position = UDim2.new(0.5, -150, 0.5, -75)
     modalFrame.Size = UDim2.new(0, 300, 0, 150)
@@ -268,20 +268,20 @@ local function saveScript()
     modalTitle.Size = UDim2.new(1, 0, 0, 30)
     modalTitle.Font = Enum.Font.SourceSansBold
     modalTitle.Text = "Save Script"
-    modalTitle.TextColor3 = getCurrentTheme().Text
+    modalTitle.TextColor3 = Theme.Text
     modalTitle.TextSize = 18
     modalTitle.ZIndex = 102
     modalTitle.Parent = modalFrame
     
     local nameInput = Instance.new("TextBox")
     nameInput.Name = "NameInput"
-    nameInput.BackgroundColor3 = getCurrentTheme().Background
+    nameInput.BackgroundColor3 = Theme.Background
     nameInput.Position = UDim2.new(0.5, -130, 0.5, -15)
     nameInput.Size = UDim2.new(0, 260, 0, 30)
     nameInput.Font = Enum.Font.SourceSans
     nameInput.PlaceholderText = "Enter script name..."
     nameInput.Text = name
-    nameInput.TextColor3 = getCurrentTheme().Text
+    nameInput.TextColor3 = Theme.Text
     nameInput.TextSize = 14
     nameInput.ZIndex = 102
     nameInput.Parent = modalFrame
@@ -292,7 +292,7 @@ local function saveScript()
     
     local saveBtn = Instance.new("TextButton")
     saveBtn.Name = "SaveButton"
-    saveBtn.BackgroundColor3 = getCurrentTheme().AccentColor
+    saveBtn.BackgroundColor3 = Theme.AccentColor
     saveBtn.Position = UDim2.new(0.3, -50, 0.8, -15)
     saveBtn.Size = UDim2.new(0, 100, 0, 30)
     saveBtn.Font = Enum.Font.SourceSansBold
@@ -310,12 +310,12 @@ local function saveScript()
     
     local cancelBtn = Instance.new("TextButton")
     cancelBtn.Name = "CancelButton"
-    cancelBtn.BackgroundColor3 = getCurrentTheme().ButtonColor
+    cancelBtn.BackgroundColor3 = Theme.ButtonColor
     cancelBtn.Position = UDim2.new(0.7, -50, 0.8, -15)
     cancelBtn.Size = UDim2.new(0, 100, 0, 30)
     cancelBtn.Font = Enum.Font.SourceSansBold
     cancelBtn.Text = "Cancel"
-    cancelBtn.TextColor3 = getCurrentTheme().Text
+    cancelBtn.TextColor3 = Theme.Text
     cancelBtn.TextSize = 16
     cancelBtn.ZIndex = 102
     cancelBtn.Parent = modalFrame
@@ -336,7 +336,7 @@ local function saveScript()
         
         button.MouseLeave:Connect(function()
             TweenService:Create(button, TweenInfo.new(0.3), {
-                BackgroundColor3 = button == saveBtn and getCurrentTheme().AccentColor or getCurrentTheme().ButtonColor
+                BackgroundColor3 = button == saveBtn and Theme.AccentColor or Theme.ButtonColor
             }):Play()
         end)
         
@@ -507,11 +507,11 @@ local function setupButtonHoverEffect(button, normalColor, hoverColor)
     end)
 end
 
-setupButtonHoverEffect(ClearButton, getCurrentTheme().ButtonColor, getCurrentTheme().ButtonHover)
-setupButtonHoverEffect(SaveButton, getCurrentTheme().ButtonColor, getCurrentTheme().ButtonHover)
-setupButtonHoverEffect(LoadButton, getCurrentTheme().ButtonColor, getCurrentTheme().ButtonHover)
-setupButtonHoverEffect(ScriptHubButton, getCurrentTheme().ButtonColor, getCurrentTheme().ButtonHover)
-setupButtonHoverEffect(SettingsButton, getCurrentTheme().ButtonColor, getCurrentTheme().ButtonHover)
+setupButtonHoverEffect(ClearButton, Theme.ButtonColor, Theme.ButtonHover)
+setupButtonHoverEffect(SaveButton, Theme.ButtonColor, Theme.ButtonHover)
+setupButtonHoverEffect(LoadButton, Theme.ButtonColor, Theme.ButtonHover)
+setupButtonHoverEffect(ScriptHubButton, Theme.ButtonColor, Theme.ButtonHover)
+setupButtonHoverEffect(SettingsButton, Theme.ButtonColor, Theme.ButtonHover)
 
 -- Для Execute кнопки особый эффект, т.к. у неё градиент
 ExecuteButton.MouseEnter:Connect(function()
@@ -665,7 +665,7 @@ SettingsButton.MouseButton1Click:Connect(function()
     -- Создаем всплывающее уведомление
     local notification = Instance.new("Frame")
     notification.Name = "Notification"
-    notification.BackgroundColor3 = getCurrentTheme().SecondaryBackground
+    notification.BackgroundColor3 = Theme.SecondaryBackground
     notification.BorderSizePixel = 0
     notification.Position = UDim2.new(1, 10, 0, 10) -- Начинаем за пределами экрана
     notification.Size = UDim2.new(0, 280, 0, 80)
@@ -683,7 +683,7 @@ SettingsButton.MouseButton1Click:Connect(function()
     -- Иконка
     local iconContainer = Instance.new("Frame")
     iconContainer.Name = "IconContainer"
-    iconContainer.BackgroundColor3 = getCurrentTheme().AccentColor
+    iconContainer.BackgroundColor3 = Theme.AccentColor
     iconContainer.BorderSizePixel = 0
     iconContainer.Position = UDim2.new(0, 10, 0.5, -20)
     iconContainer.Size = UDim2.new(0, 40, 0, 40)
@@ -714,7 +714,7 @@ SettingsButton.MouseButton1Click:Connect(function()
     notifTitle.Size = UDim2.new(1, -70, 0, 20)
     notifTitle.Font = Enum.Font.SourceSansBold
     notifTitle.Text = "Settings"
-    notifTitle.TextColor3 = getCurrentTheme().Text
+    notifTitle.TextColor3 = Theme.Text
     notifTitle.TextSize = 16
     notifTitle.TextXAlignment = Enum.TextXAlignment.Left
     notifTitle.ZIndex = 16
@@ -728,7 +728,7 @@ SettingsButton.MouseButton1Click:Connect(function()
     notifMessage.Size = UDim2.new(1, -70, 0, 40)
     notifMessage.Font = Enum.Font.SourceSans
     notifMessage.Text = "Settings panel coming soon!"
-    notifMessage.TextColor3 = getCurrentTheme().Text
+    notifMessage.TextColor3 = Theme.Text
     notifMessage.TextWrapped = true
     notifMessage.TextSize = 14
     notifMessage.TextXAlignment = Enum.TextXAlignment.Left
@@ -739,7 +739,7 @@ SettingsButton.MouseButton1Click:Connect(function()
     -- Индикатор прогресса
     local progressBar = Instance.new("Frame")
     progressBar.Name = "ProgressBar"
-    progressBar.BackgroundColor3 = getCurrentTheme().AccentColor
+    progressBar.BackgroundColor3 = Theme.AccentColor
     progressBar.BorderSizePixel = 0
     progressBar.Position = UDim2.new(0, 0, 1, -2)
     progressBar.Size = UDim2.new(1, 0, 0, 2)
