@@ -1,8 +1,19 @@
+-- Инийиализация Темы
+local Theme = {
+    Background = Color3.fromRGB(25, 25, 25),
+    SecondaryBackground = Color3.fromRGB(40, 40, 40),
+    Text = Color3.fromRGB(255, 255, 255),
+    AccentColor = Color3.fromRGB(10, 132, 255),
+    ButtonColor = Color3.fromRGB(50, 50, 50),
+    ButtonHover = Color3.fromRGB(65, 65, 65),
+    Shadow = Color3.fromRGB(15, 15, 15)
+}
+
 -- Заголовок в стиле macOS для ScriptHub
 local ScriptHubTitleBar = Instance.new("Frame")
 ScriptHubTitleBar.Name = "TitleBar"
 ScriptHubTitleBar.Parent = ScriptHubFrame
-ScriptHubTitleBar.BackgroundColor3 = Theme.DarkMode and Theme.Dark.SecondaryBackground or Theme.Light.SecondaryBackground -- Исправлено
+ScriptHubTitleBar.BackgroundColor3 = Theme.SecondaryBackground -- Исправлено
 ScriptHubTitleBar.BorderSizePixel = 0
 ScriptHubTitleBar.Size = UDim2.new(1, 0, 0, 40)
 ScriptHubTitleBar.ZIndex = 11
