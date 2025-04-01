@@ -2,7 +2,7 @@
 local ScriptHubTitleBar = Instance.new("Frame")
 ScriptHubTitleBar.Name = "TitleBar"
 ScriptHubTitleBar.Parent = ScriptHubFrame
-ScriptHubTitleBar.BackgroundColor3 = getCurrentTheme().SecondaryBackground
+ScriptHubTitleBar.BackgroundColor3 = Theme.DarkMode and Theme.Dark.SecondaryBackground or Theme.Light.SecondaryBackground -- Исправлено
 ScriptHubTitleBar.BorderSizePixel = 0
 ScriptHubTitleBar.Size = UDim2.new(1, 0, 0, 40)
 ScriptHubTitleBar.ZIndex = 11
